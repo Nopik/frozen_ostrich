@@ -6,6 +6,6 @@ class Product(models.Model):
   description = models.CharField(max_length=2000)
   inventory_count = models.IntegerField(default=0)
 
-  def __unicode__(self):
+  def __str__(self):
     return "[%s] %s" % (self.code, self.name)
 
