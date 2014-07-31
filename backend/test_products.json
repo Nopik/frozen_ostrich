@@ -1,0 +1,29 @@
+[
+	{ "model": "backend.product",
+		"pk": 1,
+		"fields": {
+			"code": "first-product",
+			"name": "First",
+			"description": "first description",
+			"inventory_count": 42
+		}
+	},
+	{ "model": "backend.product",
+		"pk": 2,
+		"fields": {
+			"code": "second-product",
+			"name": "Second",
+			"description": "second description",
+			"inventory_count": 17
+		}
+	},
+	{ "model": "backend.product",
+		"pk": 3,
+		"fields": {
+			"code": "third-product",
+			"name": "Third",
+			"description": "third description",
+			"inventory_count": 25
+		}
+	}
+]
