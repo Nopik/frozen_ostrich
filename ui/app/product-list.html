@@ -1,13 +1,23 @@
-<div class="container-fluid" ng-controller="ProductListCtrl">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
-			Search: <input ng-model="query">
+			<p>Search: <input ng-model="query"></p>
+
+			<div ng-controller="NewProductCtrl">
+				<form novalidate class="simple-form">
+					Name: <input type="text" ng-model="new_product.name" /><br />
+					Code: <input type="text" ng-model="new_product.code" /><br />
+					Count: <input type="text" ng-model="new_product.inventory_count" /><br />
+					Description: <textarea ng-model="new_product.description"></textarea><br />
+					<button ng-click="resetNewProduct()">RESET</button>
+					<button id='create-new-product' ng-click="createNewProduct(new_product)">SAVE</button>
+				</form>
+			</div>
 		</div>
 
 		<div class="col-md-10">
 			<ul class="products" ng-repeat="product in products | filter:query">
 				<li><a href="#/products/{{product.code}}">[{{product.code}}] {{product.name}}</a>, available: {{product.inventory_count}}</li>
-				<li>{{product.description}}</li>
 			</ul>
 		</div>
 	</div>

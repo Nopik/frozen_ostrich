@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 					'resources/bower_components/bootstrap/dist/js/bootstrap.min.js',
 					'resources/bower_components/angular/angular.js',
 					'resources/bower_components/angular-route/angular-route.js',
+					'resources/bower_components/underscore/underscore.js',
 					'src/js/controllers.js',
 					'src/js/main.js'
 				],

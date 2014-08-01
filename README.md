@@ -10,3 +10,5 @@ For simplicity (and due to lack of such requirement) no authentication/authoriza
 
 In real application paging should be added as well, to not return list of all products in one go.
 
+Currently protractor tests are setup to run against development database, which doesn't make much sense, it should run against fixtures.
+
