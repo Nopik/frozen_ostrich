@@ -12,6 +12,12 @@
     "grunt-contrib-watch": "^0.6.1",
     "karma": "^0.12.19",
     "karma-chrome-launcher": "^0.1.4",
-    "karma-jasmine": "^0.1.5"
+    "karma-jasmine": "^0.1.5",
+    "protractor": "^1.0.0"
+  },
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
+    "protractor": "protractor test/protractor-conf.js"
   }
 }
