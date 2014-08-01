@@ -1,0 +1,15 @@
+<div class="container-fluid" ng-controller="ProductListCtrl">
+	<div class="row">
+		<div class="col-md-2">
+			Search: <input ng-model="query">
+		</div>
+
+		<div class="col-md-10">
+			<ul class="products" ng-repeat="product in products | filter:query">
+				<li><a href="#/products/{{product.code}}">[{{product.code}}] {{product.name}}</a>, available: {{product.inventory_count}}</li>
+				<li>{{product.description}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+

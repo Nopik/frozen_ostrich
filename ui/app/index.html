@@ -11,20 +11,7 @@
 	</head>
 
 	<body>
-		<div class="container-fluid" ng-controller="ProductListCtrl">
-			<div class="row">
-				<div class="col-md-2">
-					Search: <input ng-model="query">
-				</div>
-
-				<div class="col-md-10">
-					<ul ng-repeat="product in products | filter:query">
-						<li>[{{product.code}}] {{product.name}}, available: {{product.inventory_count}}</li>
-						<li>{{product.description}}</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<div ng-view></div>
 
 		<script src="js/frozen_ostrich_ui.js"></script>
 		<script src="//localhost:35729/livereload.js"></script>
