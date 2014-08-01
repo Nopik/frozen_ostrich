@@ -1,0 +1,14 @@
+{
+  "name": "frozen_ostrich_ui",
+  "version": "1.0.0",
+  "description": "Test Django/Angular application",
+  "author": "Kamil Burzynski",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
