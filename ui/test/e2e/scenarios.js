@@ -47,7 +47,7 @@ describe('Frozen Ostrich App', function() {
 
 
     it('should display placeholder page with productCode', function() {
-      expect(element(by.binding('productCode')).getText()).toBe('shell1');
+      expect(element(by.binding('product.description')).getText()).toBe('opis');
     });
   });
 });

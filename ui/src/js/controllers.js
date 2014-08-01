@@ -8,9 +8,14 @@ frozenOstrichControllers.controller('ProductListCtrl', ['$scope', '$http',
   }
 ]);
 
-frozenOstrichControllers.controller('ProductDetailCtrl', ['$scope', '$routeParams',
-  function($scope, $routeParams) {
+frozenOstrichControllers.controller('ProductDetailCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
     $scope.productCode = $routeParams.productCode;
+
+		// Django apparently loves the trailing slashes...
+		$http.get( 'api/v1/product/' + $scope.productCode + '/' ).success( function( data ) {
+			$scope.product = data;
+		});
   }
 ]);
 

@@ -20,16 +20,15 @@ class ProductResourceTest(ResourceTestCase):
 			u'description': u'first description',
 			u'id': 1,
 			u'inventory_count': 42,
-			u'resource_uri': u'/api/v1/product/1/'
+			u'resource_uri': u'/api/v1/product/first-product/'
     })
 
-  #def test_get_detail_json(self):
-  #  resp = self.api_client.get(self.detail_url, format='json', authentication=self.get_credentials())
-  #  self.assertValidJSONResponse(resp)
+  def test_get_detail_json(self):
+    resp = self.api_client.get('/api/v1/product/first-product/', format='json')
+    self.assertValidJSONResponse(resp)
 
-  #  # We use ``assertKeys`` here to just verify the keys, not all the data.
-  #  self.assertKeys(self.deserialize(resp), ['created', 'slug', 'title', 'user'])
-  #  self.assertEqual(self.deserialize(resp)['name'], 'First post')
+    self.assertKeys(self.deserialize(resp), ['code', 'name', 'description', 'inventory_count', 'id', 'resource_uri'])
+    self.assertEqual(self.deserialize(resp)['name'], 'First')
 
   #def test_post_list(self):
   #  # Check how many are there first.
