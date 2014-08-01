@@ -12,13 +12,13 @@ describe('Frozen Ostrich App', function() {
       var productList = element.all(by.repeater('product in products'));
       var query = element(by.model('query'));
 
-      expect(productList.count()).toBe(4);
+      expect(productList.count()).toBeGreaterThan(1);
 
-      query.sendKeys('1');
+      query.sendKeys('7');
       expect(productList.count()).toBe(1);
 
       query.clear();
-      query.sendKeys('2');
+      query.sendKeys('1');
       expect(productList.count()).toBe(2);
     });
   });
