@@ -1,4 +1,4 @@
-frozenOstrichApp = angular.module 'frozenOstrichApp', [ 'ngRoute', 'frozenOstrichControllers' ]
+frozenOstrichApp = angular.module 'frozenOstrichApp', [ 'ngRoute', 'frozenOstrichControllers', 'frozenOstrichServices' ]
 
 frozenOstrichApp.config [ '$routeProvider',
 	($routeProvider)->
