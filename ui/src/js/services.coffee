@@ -92,7 +92,6 @@ class ProductsService
 
 	destroyProduct: (product, cb)->
 		@$http.delete("api/v1/product/#{product.code}/").success (data)=>
-			#Easiest solution of $scope.products = _.filter(...) is bad - causes whole screens to re-render due to whole array change
 			idx = @products.indexOf product
 
 			if idx >= 0
