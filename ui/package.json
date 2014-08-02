@@ -1,23 +1,24 @@
 {
-  "name": "frozen_ostrich_ui",
-  "version": "1.0.0",
-  "description": "Test Django/Angular application",
-  "author": "Kamil Burzynski",
-  "license": "MIT",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-sass": "^0.7.3",
-    "grunt-contrib-watch": "^0.6.1",
-    "karma": "^0.12.19",
-    "karma-chrome-launcher": "^0.1.4",
-    "karma-jasmine": "^0.1.5",
-    "protractor": "^1.0.0"
-  },
-  "scripts": {
-    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
-    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
-    "protractor": "protractor test/protractor-conf.js"
-  }
+	"name": "frozen_ostrich_ui",
+	"version": "1.0.0",
+	"description": "Test Django/Angular application",
+	"author": "Kamil Burzynski",
+	"license": "MIT",
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-coffee": "^0.10.1",
+		"grunt-contrib-concat": "^0.5.0",
+		"grunt-contrib-copy": "^0.5.0",
+		"grunt-contrib-sass": "^0.7.3",
+		"grunt-contrib-watch": "^0.6.1",
+		"karma": "^0.12.19",
+		"karma-chrome-launcher": "^0.1.4",
+		"karma-jasmine": "^0.1.5",
+		"protractor": "^1.0.0"
+	},
+	"scripts": {
+		"test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+		"test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
+		"protractor": "protractor test/protractor-conf.js"
+	}
 }

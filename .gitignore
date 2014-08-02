@@ -3,6 +3,7 @@ development
 
 *.pyc
 *.swp
+.idea
 .sass-cache
 ui/app/css
 ui/app/js
