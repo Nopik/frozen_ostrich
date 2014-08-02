@@ -9,8 +9,8 @@
 					Code: <input type="text" ng-model="new_product.code" /><br />
 					Count: <input type="text" ng-model="new_product.inventory_count" /><br />
 					Description: <textarea ng-model="new_product.description"></textarea><br />
-					<button ng-click="resetNewProduct()">RESET</button>
-					<button id='create-new-product' ng-click="createNewProduct(new_product)">SAVE</button>
+					<input type="button" ng-click="resetNewProduct()" value="Reset"/>
+					<input type="submit" id='create-new-product' ng-click="createNewProduct(new_product)" value="Save"/>
 				</form>
 			</div>
 		</div>
