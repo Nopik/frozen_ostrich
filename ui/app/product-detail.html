@@ -1,10 +1,10 @@
 <p>Detail view for <span>{{productCode}}</span>:</p>
-				
+
 <ul>
 	<li>Code: {{product.code}}</li>
-	<li>Name: {{product.name}}</li>
-	<li>Available: {{product.inventory_count}}</li>
-	<li>Description:
+	<li class="product-name">Name: {{product.name}}</li>
+	<li class="product-count">Available: {{product.inventory_count}}</li>
+	<li class="product-description">Description:
 		<p>{{product.description}}</p>
 	</li>
 </ul>
@@ -13,9 +13,9 @@
 	<button class="btn btn-primary" ng-click="editProduct()" ng-show="!editMode">Edit</button>
 
 	<div ng-show="editMode">
-		New name: <input type="text" ng-model="edited_product.name" /><br />
-		New count: <input type="text" ng-model="edited_product.inventory_count" /><br />
-		New description: <textarea ng-model="edited_product.description"></textarea><br />
+		New name: <input id="name-edit" type="text" ng-model="edited_product.name" /><br />
+		New count: <input id="count-edit" type="text" ng-model="edited_product.inventory_count" /><br />
+		New description: <textarea id="description-edit" ng-model="edited_product.description"></textarea><br />
 	</div>
 
 	<button class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode">Cancel</button>
