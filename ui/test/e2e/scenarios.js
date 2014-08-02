@@ -96,16 +96,16 @@ describe('Frozen Ostrich App', function() {
 
 			expect(element(by.css('.product-name')).getText()).toEqual( 'test name' );
 
-      element(by.buttonText('Edit')).click();
+			element(by.buttonText('Edit')).click();
 
-      element(by.css('#name-edit')).clear().sendKeys( 'Updated: test name' );
-      element(by.css('#count-edit')).clear().sendKeys( '4243' );
-      element(by.css('#description-edit')).clear().sendKeys( 'Updated: Lorem ipsum' );
+			element(by.css('#name-edit')).clear().sendKeys( 'Updated: test name' );
+			element(by.css('#count-edit')).clear().sendKeys( '4243' );
+			element(by.css('#description-edit')).clear().sendKeys( 'Updated: Lorem ipsum' );
 
-      element(by.buttonText('Save')).click();
+			element(by.buttonText('Save')).click();
 
-      expect(element(by.css('.product-name')).getText()).toEqual( 'Updated: test name' );
-      expect(element(by.css('.product-description')).getText()).toEqual( 'Updated: Lorem ipsum' );
+			expect(element(by.css('.product-name')).getText()).toEqual( 'Updated: test name' );
+			expect(element(by.css('.product-description')).getText()).toEqual( 'Updated: Lorem ipsum' );
 
 			element(by.buttonText('Delete this product')).click();
 			element(by.buttonText('Delete')).click();

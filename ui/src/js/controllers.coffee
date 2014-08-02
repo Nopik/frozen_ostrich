@@ -5,9 +5,6 @@ frozenOstrichControllers.controller "ProductListCtrl", [ "$scope", "$http", "Pro
 ]
 
 frozenOstrichControllers.controller "ProductDetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "ProductService", ($scope, $routeParams, $http, $location, ProductService)->
-	hideDialog = ->
-		$("#delete-product-dialog").modal "hide"
-
 	$scope.productCode = $routeParams.productCode
 	$scope.deleting = false
 
@@ -25,7 +22,7 @@ frozenOstrichControllers.controller "ProductDetailCtrl", [ "$scope", "$routePara
 					$scope.$apply()
 
 				#Hide dialog only upon success, in case of failure let user retry easily
-				hideDialog()
+				$("#delete-product-dialog").modal "hide"
 
 			$scope.deleting = false
 ]
