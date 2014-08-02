@@ -1,4 +1,5 @@
 frozenOstrichControllers = angular.module "frozenOstrichControllers", []
+
 frozenOstrichControllers.run ($rootScope, $http)->
 	#One of controllers modified product list, lets notify others.
 	#We need to use different event names to not trigger ourselves to death.
@@ -45,6 +46,7 @@ frozenOstrichControllers.controller "ProductDetailCtrl", [ "$scope", "$routePara
 		.error ->
 			hideDialog()
 ]
+
 frozenOstrichControllers.controller "ProductEditCtrl", [ "$scope", "$http", ($scope, $http)->
 	$scope.editMode = false
 
@@ -64,6 +66,7 @@ frozenOstrichControllers.controller "ProductEditCtrl", [ "$scope", "$http", ($sc
 			$scope.editMode = false
 		.error ->
 ]
+
 frozenOstrichControllers.controller "NewProductCtrl", [ "$scope", "$http", ($scope, $http)->
 	$scope.resetNewProduct = ->
 		$scope.new_product =
