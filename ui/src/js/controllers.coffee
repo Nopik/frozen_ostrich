@@ -9,10 +9,13 @@ frozenOstrichControllers.controller "ProductDetailCtrl", [ "$scope", "$routePara
 		$("#delete-product-dialog").modal "hide"
 
 	$scope.productCode = $routeParams.productCode
+	$scope.deleting = false
 
 	$scope.product = ProductService.getProduct $scope.productCode
 
 	$scope.deleteProduct = ->
+		$scope.deleting = true
+
 		ProductService.destroyProduct $scope.product, (success)->
 			# In normal project error message would be displayed upon failure
 			if success == true
@@ -23,10 +26,13 @@ frozenOstrichControllers.controller "ProductDetailCtrl", [ "$scope", "$routePara
 
 				#Hide dialog only upon success, in case of failure let user retry easily
 				hideDialog()
+
+			$scope.deleting = false
 ]
 
 frozenOstrichControllers.controller "ProductEditCtrl", [ "$scope", "$http", ($scope, $http)->
 	$scope.editMode = false
+	$scope.requestInProgress = false
 
 	$scope.editProduct = ->
 		$scope.editMode = true
@@ -36,12 +42,16 @@ frozenOstrichControllers.controller "ProductEditCtrl", [ "$scope", "$http", ($sc
 		$scope.editMode = false
 
 	$scope.updateProduct = (product)->
+		$scope.requestInProgress = true
 		$scope.product.update product, (success)->
 			# In normal project error message would be displayed upon failure
 			$scope.editMode = false
+			$scope.requestInProgress = false
 ]
 
 frozenOstrichControllers.controller "NewProductCtrl", [ "$scope", "$http", "ProductService", ($scope, $http, ProductService)->
+	$scope.requestInProgress = false
+
 	$scope.resetNewProduct = ->
 		$scope.new_product =
 			name: ""
@@ -50,9 +60,12 @@ frozenOstrichControllers.controller "NewProductCtrl", [ "$scope", "$http", "Prod
 			inventory_count: 0
 
 	$scope.createNewProduct = (new_product)->
+		$scope.requestInProgress = true
+
 		ProductService.createProduct new_product, (success)->
 			# In normal project error message would be displayed upon failure
 			$scope.resetNewProduct()
+			$scope.requestInProgress = false
 
 	$scope.resetNewProduct()
 ]

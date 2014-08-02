@@ -5,12 +5,12 @@
 
 			<div ng-controller="NewProductCtrl">
 				<form novalidate class="simple-form">
-					Name: <input type="text" ng-model="new_product.name" /><br />
-					Code: <input type="text" ng-model="new_product.code" /><br />
-					Count: <input type="text" ng-model="new_product.inventory_count" /><br />
-					Description: <textarea ng-model="new_product.description"></textarea><br />
-					<input type="button" ng-click="resetNewProduct()" value="Reset"/>
-					<input type="submit" id='create-new-product' ng-click="createNewProduct(new_product)" value="Save"/>
+					Name: <input type="text" ng-model="new_product.name" ng-disabled="requestInProgress"/><br />
+					Code: <input type="text" ng-model="new_product.code" ng-disabled="requestInProgress"/><br />
+					Count: <input type="text" ng-model="new_product.inventory_count" ng-disabled="requestInProgress"/><br />
+					Description: <textarea ng-model="new_product.description" ng-disabled="requestInProgress"></textarea><br />
+					<input type="button" ng-click="resetNewProduct()" value="Reset" ng-disabled="requestInProgress"/>
+					<input type="submit" id='create-new-product' ng-click="createNewProduct(new_product)" value="Save" ng-disabled="requestInProgress"/>
 				</form>
 			</div>
 		</div>

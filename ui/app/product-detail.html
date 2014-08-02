@@ -14,13 +14,13 @@
 
 	<form novalidate class="simple-form">
 		<div ng-show="editMode">
-			New name: <input id="name-edit" type="text" ng-model="edited_product.name" /><br />
-			New count: <input id="count-edit" type="text" ng-model="edited_product.inventory_count" /><br />
-			New description: <textarea id="description-edit" ng-model="edited_product.description"></textarea><br />
+			New name: <input id="name-edit" type="text" ng-model="edited_product.name" ng-disabled="requestInProgress"/><br />
+			New count: <input id="count-edit" type="text" ng-model="edited_product.inventory_count" ng-disabled="requestInProgress"/><br />
+			New description: <textarea id="description-edit" ng-model="edited_product.description" ng-disabled="requestInProgress"></textarea><br />
 		</div>
 
-		<input type="button" class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode" value="Cancel" />
-		<input type="submit" class="btn btn-primary" ng-click="updateProduct(edited_product)" ng-show="editMode" value="Save" />
+		<input type="button" class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode" value="Cancel" ng-disabled="requestInProgress" />
+		<input type="submit" class="btn btn-primary" ng-click="updateProduct(edited_product)" ng-show="editMode" value="Save" ng-disabled="requestInProgress" />
 	</form>
 </div>
 
@@ -39,8 +39,8 @@
 				<p>This action cannot be undone.</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn btn-danger" ng-click="deleteProduct()">Delete</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" ng-disabled="deleting">Cancel</button>
+				<button type="button" class="btn btn-danger" ng-click="deleteProduct()" ng-disabled="deleting">Delete</button>
 			</div>
 		</div>
 	</div>
