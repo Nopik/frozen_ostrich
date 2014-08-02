@@ -1,6 +1,6 @@
 var frozenOstrichControllers = angular.module('frozenOstrichControllers', []);
 
-frozenOstrichControllers.run(function($rootScope){
+frozenOstrichControllers.run(function($rootScope, $http){
 	//One of controllers modified product list, lets notify others.
 	//We need to use different event names to not trigger ourselves to death.
 
@@ -44,7 +44,7 @@ frozenOstrichControllers.controller('ProductDetailCtrl', ['$scope', '$routeParam
 
 		function hideDialog(){
 			$('#delete-product-dialog').modal('hide');
-		};
+		}
 
 		$scope.deleteProduct = function(){
 			$http.delete( 'api/v1/product/' + $scope.productCode + '/' ).success( function( data ) {
@@ -60,6 +60,32 @@ frozenOstrichControllers.controller('ProductDetailCtrl', ['$scope', '$routeParam
 				hideDialog();
 			});
 		};
+  }
+]);
+
+frozenOstrichControllers.controller('ProductEditCtrl', ['$scope', '$http',
+  function($scope, $http){
+    $scope.editMode = false;
+
+    $scope.editProduct = function(){
+      $scope.editMode = true;
+
+      $scope.edited_product = angular.copy( $scope.product );
+    };
+
+    $scope.cancelEdit = function(){
+      $scope.editMode = false;
+    };
+
+    $scope.updateProduct = function( product ){
+      $http( { method: 'PATCH', url: 'api/v1/product/' + $scope.productCode + '/', data: product } )
+   			.success( function( data ) {
+
+   				$scope.editMode = false;
+   			})
+   			.error(function(){
+   			});
+    };
   }
 ]);
 
@@ -88,4 +114,3 @@ frozenOstrichControllers.controller('NewProductCtrl', ['$scope', '$http',
 		$scope.resetNewProduct();
   }
 ]);
-

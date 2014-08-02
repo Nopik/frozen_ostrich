@@ -9,6 +9,18 @@
 	</li>
 </ul>
 
+<div ng-controller="ProductEditCtrl">
+	<button class="btn btn-primary" ng-click="editProduct()" ng-show="!editMode">Edit</button>
+
+	<div ng-show="editMode">
+		New name: <input type="text" ng-model="edited_product.name" /><br />
+		New count: <input type="text" ng-model="edited_product.inventory_count" /><br />
+		New description: <textarea ng-model="edited_product.description"></textarea><br />
+	</div>
+
+	<button class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode">Cancel</button>
+	<button class="btn btn-primary" ng-click="updateProduct(edited_product)" ng-show="editMode">Save</button>
+</div>
 
 <button class="btn btn-danger" data-toggle="modal" data-target="#delete-product-dialog">
   Delete this product
@@ -34,4 +46,3 @@
 
 
 <a href="#/products">Go to product list</a>
-
