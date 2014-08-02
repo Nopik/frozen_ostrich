@@ -30,7 +30,7 @@ describe('Frozen Ostrich App', function() {
 		it('should render product specific links', function() {
 			var query = element(by.model('query'));
 			query.sendKeys('dummy');
-			element(by.css('.products li a')).click();
+			element(by.css('.products tr a')).click();
 			browser.getLocationAbsUrl().then(function(url) {
 				expect(url.split('#')[1]).toBe('/products/dummy');
 			});
@@ -94,7 +94,7 @@ describe('Frozen Ostrich App', function() {
 
 			browser.get('index.html#/products/test-code');
 
-			expect(element(by.css('.product-name')).getText()).toEqual( 'Name: test name' );
+			expect(element(by.css('.product-name')).getText()).toEqual( 'test name' );
 
       element(by.buttonText('Edit')).click();
 
@@ -104,8 +104,8 @@ describe('Frozen Ostrich App', function() {
 
       element(by.buttonText('Save')).click();
 
-      expect(element(by.css('.product-name')).getText()).toEqual( 'Name: Updated: test name' );
-      expect(element(by.css('.product-description')).getText()).toEqual( 'Description:\nUpdated: Lorem ipsum' );
+      expect(element(by.css('.product-name')).getText()).toEqual( 'Updated: test name' );
+      expect(element(by.css('.product-description')).getText()).toEqual( 'Updated: Lorem ipsum' );
 
 			element(by.buttonText('Delete this product')).click();
 			element(by.buttonText('Delete')).click();

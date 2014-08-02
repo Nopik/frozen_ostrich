@@ -1,32 +1,70 @@
-<p>Detail view for <span>{{productCode}}</span>:</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a href="#/products" class="btn btn-default">Go to product list</a>
 
-<ul>
-	<li>Code: {{product.code}}</li>
-	<li class="product-name">Name: {{product.name}}</li>
-	<li class="product-count">Available: {{product.inventory_count}}</li>
-	<li class="product-description">Description:
-		<p>{{product.description}}</p>
-	</li>
-</ul>
-
-<div ng-controller="ProductEditCtrl">
-	<button class="btn btn-primary" ng-click="editProduct()" ng-show="!editMode">Edit</button>
-
-	<form novalidate class="simple-form">
-		<div ng-show="editMode">
-			New name: <input id="name-edit" type="text" ng-model="edited_product.name" ng-disabled="requestInProgress"/><br />
-			New count: <input id="count-edit" type="text" ng-model="edited_product.inventory_count" ng-disabled="requestInProgress"/><br />
-			New description: <textarea id="description-edit" ng-model="edited_product.description" ng-disabled="requestInProgress"></textarea><br />
+			<button class="btn btn-danger" data-toggle="modal" data-target="#delete-product-dialog">
+				Delete this product
+			</button>
 		</div>
+	</div>
 
-		<input type="button" class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode" value="Cancel" ng-disabled="requestInProgress" />
-		<input type="submit" class="btn btn-primary" ng-click="updateProduct(edited_product)" ng-show="editMode" value="Save" ng-disabled="requestInProgress" />
-	</form>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Detail view for <span>{{productCode}}</span>:</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<dl class="dl-horizontal">
+				<dt>Code</dt>
+				<dd>{{product.code}}</dd>
+
+				<dt>Name</dt>
+				<dd class="product-name">{{product.name}}</dd>
+
+				<dt>Available</dt>
+				<dd>{{product.inventory_count}}</dd>
+
+				<dt>Description</dt>
+				<dd class="product-description"><pre>{{product.description}}</pre></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div ng-controller="ProductEditCtrl">
+				<button class="btn btn-primary" ng-click="editProduct()" ng-show="!editMode">Edit</button>
+
+				<div ng-show="editMode">
+					<h4>Edit product</h4>
+					<form novalidate class="simple-form" role="form">
+						<div class="form-group">
+							<label for="name-edit">Name:</label>
+							<input id="name-edit" type="text" class="form-control" ng-model="edited_product.name" ng-disabled="requestInProgress"/><br />
+
+							<label for="count-edit">Count:</label>
+							<input id="count-edit" class="form-control" type="text" ng-model="edited_product.inventory_count" ng-disabled="requestInProgress"/><br />
+
+							<label for="description-edit">Description:</label>
+							<textarea id="description-edit" class="form-control" ng-model="edited_product.description" ng-disabled="requestInProgress"></textarea><br />
+
+							<div class="pull-right">
+								<input type="button" class="btn btn-default" ng-click="cancelEdit()" ng-show="editMode" value="Cancel" ng-disabled="requestInProgress" />
+								<input type="submit" class="btn btn-primary" ng-click="updateProduct(edited_product)" ng-show="editMode" value="Save" ng-disabled="requestInProgress" />
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>
 
-<button class="btn btn-danger" data-toggle="modal" data-target="#delete-product-dialog">
-	Delete this product
-</button>
 
 <div class="modal fade" id="delete-product-dialog" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
@@ -46,5 +84,3 @@
 	</div>
 </div>
 
-
-<a href="#/products">Go to product list</a>

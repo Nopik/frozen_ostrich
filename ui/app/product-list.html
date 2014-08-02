@@ -1,24 +1,56 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
-			<p>Search: <input ng-model="query"></p>
+		<div class="col-md-3">
 
 			<div ng-controller="NewProductCtrl">
-				<form novalidate class="simple-form">
-					Name: <input type="text" ng-model="new_product.name" ng-disabled="requestInProgress"/><br />
-					Code: <input type="text" ng-model="new_product.code" ng-disabled="requestInProgress"/><br />
-					Count: <input type="text" ng-model="new_product.inventory_count" ng-disabled="requestInProgress"/><br />
-					Description: <textarea ng-model="new_product.description" ng-disabled="requestInProgress"></textarea><br />
-					<input type="button" ng-click="resetNewProduct()" value="Reset" ng-disabled="requestInProgress"/>
-					<input type="submit" id='create-new-product' ng-click="createNewProduct(new_product)" value="Save" ng-disabled="requestInProgress"/>
+				<h4>Add new product</h4>
+				<form novalidate class="simple-form" role="form">
+					<div class="form-group">
+						<label for="new-name">Name:</label>
+						<input type="text" id="new-name" class="form-control" ng-model="new_product.name" ng-disabled="requestInProgress"/><br />
+
+						<label for="new-code">Code:</label>
+						<input type="text" id="new-code" class="form-control" ng-model="new_product.code" ng-disabled="requestInProgress"/><br />
+
+						<label for="new-count">Count:</label>
+						<input type="text" id="new-count" class="form-control" ng-model="new_product.inventory_count" ng-disabled="requestInProgress"/><br />
+
+						<label for="new-desc">Description:</label>
+						<textarea id="new-desc" class="form-control" ng-model="new_product.description" ng-disabled="requestInProgress"></textarea><br />
+
+						<div class="pull-right">
+							<input type="button" class="btn btn-default" ng-click="resetNewProduct()" value="Reset" ng-disabled="requestInProgress"/>
+							<input type="submit" class="btn btn-primary" id='create-new-product' ng-click="createNewProduct(new_product)" value="Save" ng-disabled="requestInProgress"/>
+						</div>
+						<div class="clearfix"></div>
+					</div>
 				</form>
 			</div>
+
+			<form role="form">
+				<div class="form-group">
+					<label for="query">Search</label>
+					<input id="query" type="text" class="form-control" placeholder="Type query here..." ng-model="query">
+				</div>
+			</form>
 		</div>
 
-		<div class="col-md-10">
-			<ul class="products" ng-repeat="product in products | filter:query">
-				<li><a href="#/products/{{product.code}}">[{{product.code}}] {{product.name}}</a>, available: {{product.inventory_count}}</li>
-			</ul>
+		<div class="col-md-9">
+			<table class="products table table-stripeed products">
+				<thead>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Count</th>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="product in products | filter:query">
+						<td><a href="#/products/{{product.code}}">{{product.code}}</a></td>
+						<td>{{product.name}}</td>
+						<td>{{product.inventory_count}}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
