@@ -28,49 +28,61 @@ This instruction assumes that you have the following installed:
 
 ## Steps
 
-1. git clone https://github.com/Nopik/frozen_ostrich.git
-1. cd frozen_ostrich
-1. virtualenv -p \[your path to python3\] development
-1. source development/bin/activate
-1. Configure DB access in frozen_ostrich/settings.py, DATABASES variable
-1. pip install Django
-1. pip install django-tastypie
-1. pip install psycopg2
-1. ./manage.py syncdb
-1. cd ui
-1. bower install
-1. npm install
-1. grunt
-1. cd ..
-1. ./manage.py runserver
+```
+git clone https://github.com/Nopik/frozen_ostrich.git
+cd frozen_ostrich
+virtualenv -p \[your path to python3\] development
+source development/bin/activate
+Configure DB access in frozen_ostrich/settings.py, DATABASES variable
+pip install Django
+pip install django-tastypie
+pip install psycopg2
+./manage.py syncdb
+cd ui
+bower install
+npm install
+grunt
+cd ..
+./manage.py runserver
+```
 
 ## Running tests
 
 ### Backend
 
-1. ./manage.py test
+```
+./manage.py test
+```
 
 ### Frontend
 
 #### Unit tests
 
-1. cd ui
-1. npm test (or npm run test-single-run)
+```
+cd ui
+npm test (or npm run test-single-run)
+```
 
 #### End-to-end tests
 
 ##### Preparation
 
-1. cd ui
-1. ./node_modules/protractor/bin/webdriver-manager update
+```
+cd ui
+./node_modules/protractor/bin/webdriver-manager update
+```
 
 ##### Running
 
 You need to run 2 processes simultaneously, on first shell:
 
-1. ./manage.py ./manage.py testserver --addrport 8001 ui/test/e2e/fixture.json --noinput
+```
+./manage.py ./manage.py testserver --addrport 8001 ui/test/e2e/fixture.json --noinput
+```
 
 on the second shell:
 
-1. cd ui
-1. npm run protractor
+```
+cd ui
+npm run protractor
+```
