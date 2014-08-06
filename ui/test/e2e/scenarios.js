@@ -11,21 +11,20 @@ describe('Frozen Ostrich App', function() {
 			browser.get('index.html#/products');
 		});
 
-// Disabled this test due to insane depedency on the development database. In normal project e2e tests should run against test database.
-//		it('should filter the product list as user types into the search box', function() {
-//
-//			var productList = element.all(by.repeater('product in products'));
-//			var query = element(by.model('query'));
-//
-//			expect(productList.count()).toBeGreaterThan(1);
-//
-//			query.sendKeys('query7');
-//			expect(productList.count()).toBe(1);
-//
-//			query.clear();
-//			query.sendKeys('query1');
-//			expect(productList.count()).toBe(2);
-//		});
+		it('should filter the product list as user types into the search box', function() {
+
+			var productList = element.all(by.repeater('product in products'));
+			var query = element(by.model('query'));
+
+			expect(productList.count()).toBe(4);
+
+			query.sendKeys('query7');
+			expect(productList.count()).toBe(1);
+
+			query.clear();
+			query.sendKeys('7');
+			expect(productList.count()).toBe(3);
+		});
 
 		it('should render product specific links', function() {
 			var query = element(by.model('query'));

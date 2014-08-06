@@ -1,0 +1,42 @@
+[
+    {
+        "fields": {
+            "code": "dummy",
+            "description": "opis",
+            "inventory_count": 42,
+            "name": "Dummy"
+        },
+        "model": "backend.product",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "code": "query7",
+            "description": "q7",
+            "inventory_count": 25,
+            "name": "Seven"
+        },
+        "model": "backend.product",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "code": "query17",
+            "description": "q17",
+            "inventory_count": 17,
+            "name": "Seventeen"
+        },
+        "model": "backend.product",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "code": "shell1",
+            "description": "opis",
+            "inventory_count": 17,
+            "name": "Shell"
+        },
+        "model": "backend.product",
+        "pk": 10
+    }
+]
